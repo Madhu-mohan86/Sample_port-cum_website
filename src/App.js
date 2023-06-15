@@ -8,6 +8,7 @@ import Certifications from './Certifications';
 import Blogs from './Blogs';
 import Services from './Services';
 import Newsletters from './Newsletters';
+import Achievements from './Achievements';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='/Blogs' element={<Blogs/>}/>
         <Route path='/Services' element={<Services/>}/>
         <Route path='/Newsletters' element={<Newsletters/>}/>
+        <Route path='/Achievements' element={<Achievements/>}/>
         </Routes>
     </Router>
   )
