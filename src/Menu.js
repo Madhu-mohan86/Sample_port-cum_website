@@ -54,8 +54,8 @@ function Menu(){
        </Link>
        <hr class="w-56 mb-5 -mt-4 h-[0.10rem] -my-1 bg-black border-0 rounded dark:bg-gray-700"></hr>
        </div>
-       <div className="float-right mr-32 mt-10 border-2 border-black rounded-xl shadow-black h-[30rem] w-[35%] overflow-hidden">
-        <img className="h-[30rem]" src="https://drive.google.com/uc?id=18l4eRQ3KJn8lXBF069vNlYlEWq_HS1-F" alt=""/>
+       <div className="float-right mr-32 mt-10 border-2 border-black rounded-xl shadow-black h-[30rem] w-[40%] overflow-hidden">
+        <img className="h-[30rem]" src="https://drive.google.com/uc?id=1cEz-xmUAbsyNT9cbwkv1yBvJZKvUyrm9" alt=""/>
        </div>
        </body>
     );
