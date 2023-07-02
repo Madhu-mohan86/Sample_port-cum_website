@@ -87,6 +87,9 @@ function Blogs(){
        
              <a href='https://www.free-counters.org/'>... by Free-Counters.org</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=13756bcc47516787b1a31cd3b922b44b6b00eea7'></script>
              <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1048930/t/0"></script>
+            <div><script type="text/javascript" src="https://www.free-counters.org/count/cpy4"></script>
+           <a href='https://www.versicherungen.at/'>Versicherungsvergleich</a> <script type='text/javascript' src='https://www.whomania.com/ctr?id=f2060ac5be56890c7967bd08ab632b48d77b7300'></script>
+           </div> 
         </body>
     );
 };
