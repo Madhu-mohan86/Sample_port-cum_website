@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 function Menu() {
   return (
     <div>
-      <div className="relative p-2 bg-white border-2 border-black rounded-lg w-36 top-5 left-24 shadow-black">
+      <div className="relative flex justify-center p-2 bg-white border-2 border-black rounded-lg w-36 top-5 left-24 place-items-center shadow-black">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="fixed w-6 h-6"
+          className="w-6 h-6"
         >
           <path
             strokeLinecap="round"
@@ -19,7 +19,7 @@ function Menu() {
             d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59"
           />
         </svg>
-        <h1 className="font-bold text-center font-Roboto pl-7">Navigation</h1>
+        <h1 className="font-bold text-center font-Roboto">Navigation</h1>
       </div>
       <div className="flex justify-center">
         <div className=" mt-10 border-2 border-black rounded-xl shadow-black h-[30rem] w-[40%] overflow-hidden">

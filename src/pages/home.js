@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 function View() {
   return (
-    <body
+    <div
       className="w-screen h-screen bg-cover"
       style={{
         backgroundImage:
@@ -70,7 +70,7 @@ function View() {
           {/* <img src='https://drive.google.com/uc?id=1QNftor-0oTr9ajHqbsj5n9sXr-jwwPpG' alt='' className='h-64'/>*/}
         </span>
       </div>
-    </body>
+    </div>
   );
 }
 export default View;

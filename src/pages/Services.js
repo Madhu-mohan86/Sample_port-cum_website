@@ -1,6 +1,27 @@
+import React from "react";
+
 function Services() {
+  const details = [
+    {
+      id: 1,
+      type: "Web Design",
+      description:
+        "Web design as a service involves creating visually appealing and user-friendly websites for clients. It includes tasks such as designing layouts, selecting color schemes, incorporating graphics,and ensuring a seamless user experience. The goal is to create a customized online presence that effectively represents the clients brand and engages their target audience.",
+      mode: "Remote / In-office",
+      charges: "Freemium",
+    },
+    {
+      id: 2,
+      type: "UI/UX Design",
+      description:
+        "We specialize in providing top-notch UI (User Interface) and UX (User Experience) design services. Our UI design expertise involves creating visually captivating interfaces, including icons, buttons, and color palettes, to enhance the visual appeal of digital products. On the UX front, we focus on crafting seamless and intuitive user journeys, considering usability, accessibility, and emotional resonance. With our services, we ensure that your digital products not only look stunning but also deliver exceptional user experiences that leave a lasting impact",
+      mode: "Remote / In-office",
+      charges: "Freemium",
+    },
+  ];
+
   return (
-    <body>
+    <div>
       <div className="relative p-2 bg-white border-2 border-black rounded-lg w-36 top-5 left-24 shadow-black">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -19,92 +40,51 @@ function Services() {
 
         <h1 className="font-bold text-center font-Roboto pl-7">Services</h1>
       </div>
-      <div className="relative p-2 mt-10 bg-white border-2 border-black rounded-lg w-36 top-5 left-24 shadow-black">
-        <h1 className="font-bold text-center font-Roboto ">Web Design</h1>
-      </div>
-      <div className="h-64 mt-12 ml-24 mr-20 border-2 border-black ">
-        <div className="flex flex-row p-5">
-          <h1 className="pr-5 text-xl font-semibold font-Roboto_condensed text-violet-700">
-            Description
-          </h1>
-          <p className="text-sm font-semibold leading-7 tracking-wide font-Fira_sans text-slate-500 -ml-28 indent-28">
-            {" "}
-            Web design as a service involves creating visually appealing and
-            user-friendly websites for clients. It includes tasks such as
-            designing layouts, selecting color schemes, incorporating graphics,
-            and ensuring a seamless user experience. The goal is to create a
-            customized online presence that effectively represents the client's
-            brand and engages their target audience.
-          </p>
-        </div>
-        <div className="flex flex-row">
-          <h1 className="pr-5 ml-5 text-xl font-semibold font-Roboto_condensed text-violet-700">
-            Mode
-          </h1>
-          <h1 className="pr-5 text-xl font-semibold text-text font-Roboto_condensed">
-            Remote / In-office
-          </h1>
-        </div>
-        <div className="flex flex-row mt-5">
-          <h1 className="pr-5 ml-5 text-xl font-semibold font-Roboto_condensed text-violet-700">
-            Charges
-          </h1>
-          <h1 className="pr-5 text-xl font-semibold text-black font-Roboto_condensed">
-            Freemium
-          </h1>
-        </div>
-      </div>
 
-      <button className="px-3 py-1 ml-24 text-xl font-bold border-2 border-black rounded-lg shadow-black mt-7 font-Roboto_condensed">
-        Book Now
-      </button>
-      <button className="px-3 py-1 ml-12 text-xl font-bold border-2 border-black rounded-lg shadow-black mt-7 font-Roboto_condensed">
-        Enquire Now
-      </button>
+      {details.map((details) => (
+        <div>
+          <div className="relative p-2 mt-10 bg-white border-2 border-black rounded-lg w-36 top-5 left-24 shadow-black">
+            <h1 className="font-bold text-center font-Roboto ">
+              {details.type}
+            </h1>
+          </div>
 
-      <div className="relative p-2 mt-10 bg-white border-2 border-black rounded-lg w-36 top-5 left-24 shadow-black">
-        <h1 className="font-bold text-center font-Roboto">UI/UX Design</h1>
-      </div>
-      <div className="h-64 mt-12 mb-10 ml-24 mr-20 border-2 border-black ">
-        <div className="flex flex-row p-5">
-          <h1 className="pr-5 text-xl font-semibold font-Roboto_condensed text-violet-700">
-            Description
-          </h1>
-          <p className="text-sm font-semibold leading-7 tracking-wide font-Fira_sans text-slate-500 -ml-28 indent-28">
-            {" "}
-            UI/UX design as a service focuses on creating intuitive and engaging
-            user interfaces for websites, applications It involves tasks such as
-            designing user flows, wireframing, prototyping, and conducting user
-            research to optimize the user experience. The aim is to create
-            visually appealing interfaces that are easy to navigate, provide a
-            seamless interaction, and enhance user s
-          </p>
-        </div>
-        <div className="flex flex-row">
-          <h1 className="pr-5 ml-5 text-xl font-semibold font-Roboto_condensed text-violet-700">
-            Mode
-          </h1>
-          <h1 className="pr-5 text-xl font-semibold text-text font-Roboto_condensed">
-            Remote / In-office
-          </h1>
-        </div>
-        <div className="flex flex-row mt-5">
-          <h1 className="pr-5 ml-5 text-xl font-semibold font-Roboto_condensed text-violet-700">
-            Charges
-          </h1>
-          <h1 className="pr-5 text-xl font-semibold text-black font-Roboto_condensed">
-            Freemium
-          </h1>
-        </div>
-      </div>
+          <div className="h-64 mt-12 ml-24 mr-20 border-2 border-black ">
+            <div className="flex flex-row p-5">
+              <h1 className="pr-5 text-xl font-semibold font-Roboto_condensed text-violet-700">
+                Description
+              </h1>
+              <p className="text-sm font-semibold leading-7 tracking-wide font-Fira_sans text-slate-500 -ml-28 indent-28">
+                {details.description}
+              </p>
+            </div>
+            <div className="flex flex-row">
+              <h1 className="pr-5 ml-5 text-xl font-semibold font-Roboto_condensed text-violet-700">
+                Mode
+              </h1>
+              <h1 className="pr-5 text-xl font-semibold text-text font-Roboto_condensed">
+                {details.mode}
+              </h1>
+            </div>
+            <div className="flex flex-row mt-5">
+              <h1 className="pr-5 ml-5 text-xl font-semibold font-Roboto_condensed text-violet-700">
+                Charges
+              </h1>
+              <h1 className="pr-5 text-xl font-semibold text-black font-Roboto_condensed">
+                {details.charges}
+              </h1>
+            </div>
+          </div>
 
-      <button className="px-3 py-1 ml-24 text-xl font-bold border-2 border-black rounded-lg shadow-black -mt-7 font-Roboto_condensed">
-        Book Now
-      </button>
-      <button className="px-3 py-1 ml-12 text-xl font-bold border-2 border-black rounded-lg shadow-black mt-7 font-Roboto_condensed">
-        Enquire Now
-      </button>
-    </body>
+          <button className="px-3 py-1 ml-24 text-xl font-bold border-2 border-black rounded-lg shadow-black mt-7 font-Roboto_condensed">
+            Book Now
+          </button>
+          <button className="px-3 py-1 ml-12 text-xl font-bold border-2 border-black rounded-lg shadow-black mt-7 font-Roboto_condensed">
+            Enquire Now
+          </button>
+        </div>
+      ))}
+    </div>
   );
 }
 export default Services;
