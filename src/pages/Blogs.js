@@ -1,8 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 function Blogs() {
+
+
+const [blogdata,setblogdata]=useState([]);
+
+  useEffect(() => {
+    const getblogdetails = async () => {
+      const query = `
+      query GetUserArticles($page: Int) {
+        user(username: "Madhumohan") {
+          publication {
+            posts(page: $page) {
+              title
+              brief
+              slug
+            }
+          }
+        }
+      }`;
+
+      const data = await fetch("https://api.hashnode.com/", {
+        method: "POST",
+        body: JSON.stringify({query}),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const response =await data.json();
+      setblogdata(response.data.user.publication.posts)
+
+    };
+
+    getblogdetails();
+
+  }, []);
+
+
   return (
     <div>
-      <div className="relative p-2 bg-white border-2 border-black rounded-lg w-36 top-5 left-24 shadow-black">
+    <div className="relative p-2 bg-white border-2 border-black rounded-lg w-36 top-5 left-24 shadow-black">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -13,12 +51,15 @@ function Blogs() {
         </svg>
         <h1 className="pl-3 font-bold text-center font-Roboto">Blogs</h1>
       </div>
-      <div class="flex overflow-x-scroll pb-10 ml-14 mt-20">
-        <div class="flex flex-nowrap  ">
-          <div class="inline-block px-10">
-            <div class="w-64 h-96 border-2 p-3 border-black  overflow-hidden rounded-lg shadow-black">
+      <div>
+      </div>
+      <div className="flex pb-10 mt-20 overflow-x-scroll ml-14">
+        <div className="flex flex-nowrap ">
+        {blogdata.map((blog,index)=>(
+          <div className="inline-block px-10" key={index}>
+            <div className="w-64 p-3 overflow-hidden border-2 border-black rounded-lg h-96 shadow-black">
               <h1 className="pb-1 text-xl font-bold font-Roboto_condensed">
-                How the AI is Dangerous
+                {blog.title}
               </h1>
               <p className="pb-1 text-sm font-semibold text-gray-400 font-Fira_sans">
                 22 / 05 /2023 06 : 30 pm
@@ -31,163 +72,12 @@ function Blogs() {
                   Coimbatore
                 </h1>
                 <p className="font-Fira_sans text-gray-400 text-sm  font-semibold tracking-wide indent-24 -ml-[5.5rem] pl-2 leading-7">
-                  {" "}
-                  Artificial Intelligence (AI) poses potential dangers due to
-                  several reasons. Firstly, as AI systems become more advanced,
-                  they may surpass human capabilities in various domains,
-                  including decision-making and problem-solving. This could lead
-                  to unintended consequences if AI algorithms are biased,
-                  flawed, or poorly designed. Additionally, there are concerns
-                  about the lack of transparency and interpretability of AI
-                  systems, which makes it difficult to understand how they
-                  arrive at their decisions.
+                  {blog.brief}
                 </p>
               </div>
-            </div>
+            </div>       
           </div>
-          <div class="inline-block px-10">
-            <div class="w-64 h-96 border-2 p-3 border-black overflow-hidden rounded-lg shadow-black">
-              <h1 className="pb-1 text-xl font-bold font-Roboto_condensed">
-                Emergence of AR VR
-              </h1>
-              <p className="pb-1 text-sm font-semibold text-gray-400 font-Fira_sans">
-                22 / 11 /2022 06 : 30 pm
-              </p>
-              <p className="pb-1 text-sm font-semibold font-Fira_sans text-text">
-                Author - Krishnakumar{" "}
-              </p>
-              <div className="flex flex-row">
-                <h1 className="text-lg font-bold font-Roboto_condensed">
-                  Coimbatore
-                </h1>
-                <p className="font-Fira_sans text-gray-400 text-sm  font-semibold tracking-wide indent-24 -ml-[5.5rem] pl-2 leading-7">
-                  {" "}
-                  AR enhances our real-world environment by overlaying digital
-                  information, such as images, videos, or 3D models, onto our
-                  physical surroundings. It has found applications in various
-                  industries, from gaming and entertainment to education and
-                  healthcare. VR, on the other hand, transports users to
-                  entirely virtual environments, creating immersive experiences
-                  that can simulate real-world scenarios or take us to
-                  fantastical realms. It has made significant strides in gaming,
-                  training simulations, and even therapy.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="inline-block px-10">
-            <div class="w-64 h-96 border-2 p-3 border-black  overflow-hidden rounded-lg shadow-black ">
-              <h1 className="pb-1 text-xl font-bold font-Roboto_condensed">
-                How Blockchain powerful
-              </h1>
-              <p className="pb-1 text-sm font-semibold text-gray-400 font-Fira_sans">
-                22 / 11 /2021 06 : 30 pm
-              </p>
-              <p className="pb-1 text-sm font-semibold font-Fira_sans text-text">
-                Author - Balakrishnan{" "}
-              </p>
-              <div className="flex flex-row">
-                <h1 className="text-lg font-bold font-Roboto_condensed">
-                  Coimbatore
-                </h1>
-                <p className="font-Fira_sans text-gray-400 text-sm  font-semibold tracking-wide indent-24 -ml-[5.5rem] pl-2 leading-7">
-                  {" "}
-                  Blockchain technology has emerged as a groundbreaking
-                  innovation with the potential to transform various industries,
-                  revolutionizing the way we store, secure, and exchange
-                  information. At its core, blockchain is a decentralized and
-                  immutable ledger that records transactions across multiple
-                  computers or nodes, ensuring transparency, security, and trust
-                  without the need for intermediaries.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="inline-block px-10">
-            <div class="w-64 h-96 border-2 p-3 border-black  overflow-hidden rounded-lg shadow-black ">
-              <h1 className="pb-1 text-xl font-bold font-Roboto_condensed">
-                Metaverse
-              </h1>
-              <p className="pb-1 text-sm font-semibold text-gray-400 font-Fira_sans">
-                22 / 1 /2023 06 : 30 pm
-              </p>
-              <p className="pb-1 text-sm font-semibold font-Fira_sans text-text">
-                Author - Madhu mohan{" "}
-              </p>
-              <div className="flex flex-row">
-                <h1 className="text-lg font-bold font-Roboto_condensed">
-                  Coimbatore
-                </h1>
-                <p className="font-Fira_sans text-gray-400 text-sm  font-semibold tracking-wide indent-24 -ml-[5.5rem] pl-2 leading-7">
-                  {" "}
-                  The concept of the Metaverse has gained significant attention
-                  and intrigue in recent years. Often described as a virtual
-                  universe or a collective virtual space, the Metaverse
-                  represents a convergence of technology, social interaction,
-                  and immersive experiences that reshape the way we perceive and
-                  engage with digital environments. In the Metaverse, users can
-                  transcend the limitations of the physical world and enter a
-                  boundless digital realm where they can interact with each
-                  other, explore diverse landscapes, and engage in various
-                  activities. It is an interconnected network of virtual worlds,
-                  augmented reality layers, and virtual reality experiences that
-                  seamlessly blend the real and virtual worlds.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="inline-block px-10">
-            <div class="w-64 h-96 border-2 p-3 border-black overflow-hidden rounded-lg shadow-black ">
-              <h1 className="pb-1 text-xl font-bold font-Roboto_condensed">
-                Tesla for robots
-              </h1>
-              <p className="pb-1 text-sm font-semibold text-gray-400 font-Fira_sans">
-                1 / 1 /2023 06 : 30 pm
-              </p>
-              <p className="pb-1 text-sm font-semibold font-Fira_sans text-text">
-                Author - Madhu mohan{" "}
-              </p>
-              <div className="flex flex-row">
-                <h1 className="text-lg font-bold font-Roboto_condensed">
-                  Coimbatore
-                </h1>
-                <p className="font-Fira_sans text-gray-400 text-sm  font-semibold tracking-wide indent-24 -ml-[5.5rem] pl-2 leading-7">
-                  {" "}
-                  Robots have emerged as a disruptive force across various
-                  industries, revolutionizing the way we work, live, and
-                  interact with technology. These mechanical marvels are
-                  designed to perform tasks autonomously or with human guidance,
-                  offering numerous benefits and opportunities.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="inline-block px-10">
-            <div class="w-64 h-96 border-2 p-3 border-black overflow-hidden rounded-lg shadow-black ">
-              <h1 className="pb-1 text-xl font-bold font-Roboto_condensed">
-                Nvidia trillion mark
-              </h1>
-              <p className="pb-1 text-sm font-semibold text-gray-400 font-Fira_sans">
-                24 / 5 /2023 06 : 30 pm
-              </p>
-              <p className="pb-1 text-sm font-semibold font-Fira_sans text-text">
-                Author - Madhu mohan{" "}
-              </p>
-              <div className="flex flex-row">
-                <h1 className="text-lg font-bold font-Roboto_condensed">
-                  Coimbatore
-                </h1>
-                <p className="font-Fira_sans text-gray-400 text-sm  font-semibold tracking-wide indent-24 -ml-[5.5rem] pl-2 leading-7">
-                  At the core of NVIDIA's success is its Graphics Processing
-                  Units (GPUs), which have revolutionized the gaming industry by
-                  delivering immersive and realistic graphics. GPUs excel at
-                  parallel processing, making them invaluable for a wide range
-                  of applications beyond gaming, including scientific
-                  simulations, data analysis, and machine learning.
-                </p>
-              </div>
-            </div>
-          </div>
+  ))}
         </div>
       </div>
     </div>
